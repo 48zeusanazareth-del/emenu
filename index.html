@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var originalFetch = window.fetch ? window.fetch.bind(window) : undefined;
+          var _currentFetch = originalFetch;
+          var propDesc = {
+            get: function () {
+              return _currentFetch;
+            },
+            set: function (newFetch) {
+              _currentFetch = newFetch;
+            },
+            configurable: true,
+            enumerable: true,
+          };
+          try {
+            Object.defineProperty(window, 'fetch', propDesc);
+          } catch (e) {}
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              Object.defineProperty(Window.prototype, 'fetch', propDesc);
+            } catch (e) {}
+          }
+        } catch (err) {}
+      })();
+    </script>
+    <title>Ember & Grain - E-Menu</title>
+    <meta name="description" content="A polished, premium-looking mobile-first restaurant E-menu web app for a QR-code ordering demo." />
+    <meta property="og:title" content="Ember & Grain - E-Menu" />
+    <meta property="og:description" content="A polished, premium-looking mobile-first restaurant E-menu web app for a QR-code ordering demo." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

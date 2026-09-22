@@ -1,0 +1,6 @@
+{
+  "name": "Ember & Grain - E-Menu",
+  "description": "A polished, premium-looking mobile-first restaurant E-menu web app for a QR-code ordering demo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
